@@ -29,11 +29,11 @@ export default defineConfig([
       globals: globals.browser
     }
   },
-  ...tseslint.configs.strictTypeChecked,
   // 設定項目4: TypeScriptパーサーの設定
   // 例: @typescript-eslint/parserを使用してTypeScriptのパースを行うよう設定する
   {
     files: ["**/*.{ts,mts,jsx,tsx}"],
+    ...tseslint.configs.strictTypeChecked[0],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
