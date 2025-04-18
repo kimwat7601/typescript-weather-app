@@ -47,7 +47,7 @@ class WeatherAPI{
      * @param {string} cityName 都市名（郵便番号でも可）
      * @returns 
      */
-    async feachCurrentWeatherInfo(cityName: string): Promise<APICurrentResponse | undefined>{
+    async fetchCurrentWeatherInfo(cityName: string): Promise<APICurrentResponse | undefined>{
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${this.apikey}&lang=ja`; // API取得用URL
         const fetchData = await this.fetchData<APICurrentResponse>(url);
         return fetchData;
@@ -58,7 +58,7 @@ class WeatherAPI{
      * @param {string} cityName 都市名（郵便番号でも可）
      * @returns 
      */
-    async feachForecastWeatherInfo(cityName: string): Promise<APIResponseForecast | undefined>{
+    async fetchForecastWeatherInfo(cityName: string): Promise<APIResponseForecast | undefined>{
         const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${this.apikey}&lang=ja`; // API取得用URL
         const fetchData = await this.fetchData<APIResponseForecast>(url);
         return fetchData;

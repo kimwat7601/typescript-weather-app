@@ -104,7 +104,7 @@ class WeatherApp{
         const elemForecastWeaherArea = document.querySelector('.forecast-weather-area') as HTMLElement;
         try{
             this.weatherUIRenderer.renderLoading(elemCurrentWeaherArea);
-            const currentData = await this.weatherAPI.feachCurrentWeatherInfo(searchText) as APICurrentResponse;
+            const currentData = await this.weatherAPI.fetchCurrentWeatherInfo(searchText) as APICurrentResponse;
             const currentUseData = this.weatherDataProcessor.setCurrentWeatherInfo(currentData);
             this.weatherUIRenderer.renderCurrentWeather(elemCurrentWeaherArea, currentUseData);
         }
@@ -114,7 +114,7 @@ class WeatherApp{
         }
         try{
             this.weatherUIRenderer.renderLoading(elemForecastWeaherArea);
-            const forecastData = await this.weatherAPI.feachForecastWeatherInfo(searchText) as APIResponseForecast;
+            const forecastData = await this.weatherAPI.fetchForecastWeatherInfo(searchText) as APIResponseForecast;
             const forecastUseData = this.weatherDataProcessor.setDaysData(forecastData);
             this.weatherUIRenderer.renderForecastWrap(elemForecastWeaherArea, forecastUseData);
         }
